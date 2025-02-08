@@ -2,6 +2,14 @@
 
 This repository contains my personal configuration files for Neovim. It includes settings, key mappings, and plugins to enhance the Neovim experience.
 
+## Requirements
+
+- [Neovim](https://neovim.io/) (v0.9 or later)
+- [Truecolor terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#terminal-emulators)
+- [Nerd Font](https://www.nerdfonts.com/)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep)
+- [Node](https://nodejs.org/en)
+
 ## Installation
 
 Clone the repository and copy the configuration files to your Neovim configuration directory:
