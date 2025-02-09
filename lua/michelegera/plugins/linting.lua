@@ -21,7 +21,10 @@ return {
     })
 
     vim.keymap.set('n', '<leader>l', function()
-      lint.try_lint()
+      -- Check if the buffer is modifiable before attempting to lint
+      if vim.opt_local.modifiable:get() then
+        lint.try_lint()
+      end
     end, { desc = 'Trigger linting for current file' })
   end,
 }
