@@ -1,3 +1,6 @@
+-- substitute.nvim
+-- https://github.com/gbprod/substitute.nvim
+
 return {
   'gbprod/substitute.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
