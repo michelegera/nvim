@@ -3,11 +3,18 @@
 
 return {
   'nvim-telescope/telescope.nvim',
+  event = 'VimEnter',
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    'nvim-tree/nvim-web-devicons',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      cond = function()
+        return vim.fn.executable 'make' == 1
+      end,
+    },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
     local telescope = require 'telescope'
@@ -29,11 +36,18 @@ return {
     telescope.load_extension 'fzf'
 
     local keymap = vim.keymap
+    local builtin = require 'telescope.builtin'
 
-    keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Fuzzy find files in current working directory' })
-    keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>', { desc = 'Fuzzy find recent files' })
-    keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = 'Find string in current working directory' })
-    keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<CR>', { desc = 'Find string under cursor in current working directory' })
-    keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find todos' })
+    keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+    keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+    keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+    keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+    keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+    keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
+    keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
+    keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
+    keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+    keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
   end,
 }
