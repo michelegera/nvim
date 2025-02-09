@@ -4,7 +4,7 @@ local keymap = vim.keymap
 keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode' })
 
 -- Clear search highlights
-keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
+keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
 -- Increment and decrement numbers
 keymap.set('n', '<leader>+', '<C-a>', { desc = 'Increment number' })
@@ -22,3 +22,9 @@ keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' 
 keymap.set('n', '<leader>tn', '<cmd>tabnext<CR>', { desc = 'Go to next tab' })
 keymap.set('n', '<leader>tp', '<cmd>tabprevious<CR>', { desc = 'Go to previous tab' })
 keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
+
+-- Disable arrow keys
+keymap.set('n', '<left>', '<cmd>echo "Use h to move left"<CR>', { desc = 'Disable left arrow' })
+keymap.set('n', '<right>', '<cmd>echo "Use l to move right"<CR>', { desc = 'Disable right arrow' })
+keymap.set('n', '<up>', '<cmd>echo "Use k to move up"<CR>', { desc = 'Disable up arrow' })
+keymap.set('n', '<down>', '<cmd>echo "Use j to move down"<CR>', { desc = 'Disable down arrow' })
