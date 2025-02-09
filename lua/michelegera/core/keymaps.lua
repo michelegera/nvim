@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-
 local keymap = vim.keymap
 
 -- Exit insert mode quickly
