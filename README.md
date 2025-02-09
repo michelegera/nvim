@@ -9,6 +9,7 @@ This repository contains my personal configuration files for Neovim. It includes
 - [Nerd Font](https://www.nerdfonts.com/)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Node](https://nodejs.org/en)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
 
 ## Installation
 
