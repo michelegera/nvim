@@ -1,3 +1,5 @@
 return {
-  'nvim-lua/plenary.nvim', -- A Lua utility library required by many Neovim plugins
+  -- plenary.nvim
+  -- https://github.com/nvim-lua/plenary.nvim
+  'nvim-lua/plenary.nvim',
 }
