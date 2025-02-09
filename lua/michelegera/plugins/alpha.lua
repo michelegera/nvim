@@ -25,7 +25,7 @@ return {
     -- Set the buttons section of the dashboard
     dashboard.section.buttons.val = {
       dashboard.button('e', '  > New File', '<cmd>ene<CR>'),
-      dashboard.button('SPC ee', '  > Toggle File Explorer', '<cmd>NvimTreeToggle<CR>'),
+      dashboard.button('\\', '  > Toggle File Explorer', '<cmd>Neotree reveal<CR>'),
       dashboard.button('SPC ff', '󰱼  > Find File', '<cmd>Telescope find_files<CR>'),
       dashboard.button('SPC fg', '  > Find by Grep', '<cmd>Telescope live_grep<CR>'),
       dashboard.button('SPC wr', '󰁯  > Restore Session For Current Directory', '<cmd>SessionRestore<CR>'),
