@@ -14,69 +14,38 @@ return {
     local mason_lspconfig = require 'mason-lspconfig'
     local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 
-    local keymap = vim.keymap
-
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      callback = function(ev)
-        local opts = { buffer = ev.buf, silent = true }
+      callback = function(event)
+        local map = function(keys, func, desc, mode)
+          mode = mode or 'n'
+          vim.keymap.set(mode, keys, func, { buffer = event.buf, silent = true, desc = 'LSP: ' .. desc })
+        end
 
-        -- Show LSP references
-        opts.desc = 'Show LSP references'
-        keymap.set('n', 'gR', '<cmd>Telescope lsp_references<CR>', opts)
+        local buf = vim.lsp.buf
+        local builtin = require 'telescope.builtin'
+        local diagnostic = vim.diagnostic
 
-        -- Go to declaration
-        opts.desc = 'Go to declaration'
-        keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        map('gD', buf.declaration, '[G]oto [D]eclaration')
+        map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
+        map('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
+        map('gr', builtin.lsp_references, '[G]oto [R]eferences')
 
-        -- Show LSP definitions
-        opts.desc = 'Show LSP definitions'
-        keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+        map('<leader>bd', '<cmd>Telescope diagnostics bufnr=0<CR>', 'Show [B]uffer [D]iagnostics')
+        map('<leader>ca', buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+        map('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
+        map('<leader>d', diagnostic.open_float, 'Show [L]ine [D]iagnostics')
+        map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+        map('<leader>rn', buf.rename, '[R]e[n]ame')
+        map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-        -- Show LSP implementations
-        opts.desc = 'Show LSP implementations'
-        keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
-
-        -- Show LSP type definitions
-        opts.desc = 'Show LSP type definitions'
-        keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts)
-
-        -- See available code actions
-        opts.desc = 'See available code actions'
-        keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-
-        -- Smart rename
-        opts.desc = 'Smart rename'
-        keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-
-        -- Show buffer diagnostics
-        opts.desc = 'Show buffer diagnostics'
-        keymap.set('n', '<leader>D', '<cmd>Telescope diagnostics bufnr=0<CR>', opts)
-
-        -- Show line diagnostics
-        opts.desc = 'Show line diagnostics'
-        keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
-
-        -- Go to previous diagnostic
-        opts.desc = 'Go to previous diagnostic'
-        keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-
-        -- Go to next diagnostic
-        opts.desc = 'Go to next diagnostic'
-        keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-        -- Show documentation for what is under cursor
-        opts.desc = 'Show documentation for what is under cursor'
-        keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-
-        -- Restart LSP
-        opts.desc = 'Restart LSP'
-        keymap.set('n', '<leader>rs', ':LspRestart<CR>', opts)
+        map('[d', diagnostic.goto_prev, 'Goto previous diagnostic')
+        map(']d', diagnostic.goto_next, 'Goto next diagnostic')
+        map('K', buf.hover, '[K] Show documentation for what is under cursor')
       end,
     })
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
-
     local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
 
     for type, icon in pairs(signs) do
@@ -95,14 +64,27 @@ return {
       ['graphql'] = function()
         lspconfig['graphql'].setup {
           capabilities = capabilities,
-          filetypes = { 'graphql', 'gql', 'svelte', 'typescriptreact', 'javascriptreact' },
+          filetypes = {
+            'gql',
+            'graphql',
+            'javascriptreact',
+            'typescriptreact',
+          },
         }
       end,
 
       ['emmet_ls'] = function()
         lspconfig['emmet_ls'].setup {
           capabilities = capabilities,
-          filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
+          filetypes = {
+            'css',
+            'html',
+            'javascriptreact',
+            'less',
+            'sass',
+            'scss',
+            'typescriptreact',
+          },
         }
       end,
 
