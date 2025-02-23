@@ -1,2 +1,2 @@
-require 'michelegera.core'
-require 'michelegera.lazy'
+require 'custom.core'
+require 'custom.lazy'
