@@ -15,8 +15,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  { import = 'michelegera.plugins' },
-  { import = 'michelegera.plugins.lsp' },
+  { import = 'custom.plugins' },
+  { import = 'custom.plugins.lsp' },
 }, {
   checker = {
     enabled = true,
