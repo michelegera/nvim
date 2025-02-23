@@ -36,7 +36,6 @@ return {
         map('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
         map('<leader>d', diagnostic.open_float, 'Show [L]ine [D]iagnostics')
         map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>rn', buf.rename, '[R]e[n]ame')
         map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         map('[d', diagnostic.goto_prev, 'Goto previous diagnostic')
