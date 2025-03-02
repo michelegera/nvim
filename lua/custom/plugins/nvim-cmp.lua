@@ -52,6 +52,7 @@ return {
         end, { 'i', 's' }),
       },
       sources = cmp.config.sources {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
@@ -62,6 +63,7 @@ return {
           ellipsis_char = '…',
           maxwidth = 64,
           mode = 'symbol',
+          symbol_map = { Copilot = '' },
         },
       },
     }
