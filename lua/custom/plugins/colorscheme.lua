@@ -1,14 +1,11 @@
--- tokyonight.nvim
--- https://github.com/folke/tokyonight.nvim
+-- catppuccin
+-- https://github.com/catppuccin/nvim
 
 return {
-  'folke/tokyonight.nvim',
+  'catppuccin/nvim',
   priority = 1000,
   config = function()
-    require('tokyonight').setup({
-      style = 'moon',
-    })
 
-    vim.cmd('colorscheme tokyonight')
+    vim.cmd('colorscheme catppuccin-macchiato')
   end,
 }
