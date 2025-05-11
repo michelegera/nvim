@@ -10,7 +10,7 @@ return {
 
     lualine.setup {
       options = {
-        theme = 'catppuccin',
+        theme = 'tokyonight',
       },
       sections = {
         lualine_x = {

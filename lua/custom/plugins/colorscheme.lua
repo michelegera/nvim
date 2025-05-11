@@ -1,11 +1,10 @@
--- catppuccin
--- https://github.com/catppuccin/nvim
+-- tokyonight
+-- https://github.com/folke/tokyonight.nvim
 
 return {
-  'catppuccin/nvim',
+  'folke/tokyonight.nvim',
   priority = 1000,
   config = function()
-
-    vim.cmd('colorscheme catppuccin-macchiato')
+    vim.cmd 'colorscheme tokyonight-storm'
   end,
 }
