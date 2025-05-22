@@ -42,6 +42,7 @@ opt.breakindent = true -- Enable break indent
 opt.inccommand = 'split' -- Preview substitutions as you type
 opt.mouse = 'a' -- Enable mouse mode
 opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- Ensure localoptions is included
 opt.showmode = false -- Don't show the mode, since it's already in the status line
 opt.timeoutlen = 300 -- Decrease mapped sequence wait time
 opt.undofile = true -- Save undo history
