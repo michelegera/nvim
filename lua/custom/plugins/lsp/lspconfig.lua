@@ -2,7 +2,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 return {
-  'neovim/nvim-lspconfig',
+  "neovim/nvim-lspconfig",
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
@@ -11,7 +11,6 @@ return {
   },
   config = function()
     local lspconfig = require 'lspconfig'
-    local mason_lspconfig = require 'mason-lspconfig'
     local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -58,55 +57,17 @@ return {
       },
     })
 
-    mason_lspconfig.setup_handlers {
-      function(server_name)
-        lspconfig[server_name].setup {
-          capabilities = capabilities,
-        }
-      end,
-
-      ['graphql'] = function()
-        lspconfig['graphql'].setup {
-          capabilities = capabilities,
-          filetypes = {
-            'gql',
-            'graphql',
-            'javascriptreact',
-            'typescriptreact',
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
           },
-        }
-      end,
-
-      ['emmet_ls'] = function()
-        lspconfig['emmet_ls'].setup {
-          capabilities = capabilities,
-          filetypes = {
-            'css',
-            'html',
-            'javascriptreact',
-            'less',
-            'sass',
-            'scss',
-            'typescriptreact',
+          completion = {
+            callSnippet = 'Replace',
           },
-        }
-      end,
-
-      ['lua_ls'] = function()
-        lspconfig['lua_ls'].setup {
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { 'vim' },
-              },
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        }
-      end,
-    }
+        },
+      },
+    })
   end,
 }

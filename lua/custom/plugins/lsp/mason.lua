@@ -1,9 +1,10 @@
 -- mason.nvim
--- https://github.com/williamboman/mason.nvim
+-- https://github.com/mason-org/mason.nvim
 
 return {
-  'williamboman/mason.nvim',
+  'mason-org/mason.nvim',
   dependencies = {
+    'neovim/nvim-lspconfig',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
   },
@@ -23,12 +24,16 @@ return {
     }
 
     mason_lspconfig.setup {
+      automatic_enable = true,
       ensure_installed = {
         'cssls',
         'emmet_ls',
+        'eslint',
         'graphql',
         'html',
+        'jsonls',
         'lua_ls',
+        'ruby_lsp',
         'ts_ls',
       },
     }
