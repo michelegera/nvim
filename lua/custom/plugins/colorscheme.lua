@@ -5,6 +5,12 @@ return {
   'folke/tokyonight.nvim',
   priority = 1000,
   config = function()
-    vim.cmd 'colorscheme tokyonight-storm'
+    local tokyonight = require 'tokyonight'
+
+    tokyonight.setup {
+      style = 'storm',
+    }
+
+    vim.cmd [[colorscheme tokyonight]]
   end,
 }
