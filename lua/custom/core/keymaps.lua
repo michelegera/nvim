@@ -1,7 +1,8 @@
 local keymap = vim.keymap
 
--- Exit insert mode quickly
+-- Exit insert mode and save quickly
 keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode' })
+keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
 -- Clear search highlights
 keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
