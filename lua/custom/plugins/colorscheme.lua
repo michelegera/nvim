@@ -1,16 +1,12 @@
--- tokyonight
--- https://github.com/folke/tokyonight.nvim
+-- Moonlight
+-- https://github.com/shaunsingh/moonlight.nvim
 
 return {
-  'folke/tokyonight.nvim',
+  'https://github.com/shaunsingh/moonlight.nvim',
   priority = 1000,
   config = function()
-    local tokyonight = require 'tokyonight'
+    local moonlight = require 'moonlight'
 
-    tokyonight.setup {
-      style = 'storm',
-    }
-
-    vim.cmd [[colorscheme tokyonight]]
+    moonlight.set()
   end,
 }
