@@ -1,16 +1,13 @@
--- tokyonight
--- https://github.com/folke/tokyonight.nvim
+-- Koalight
+-- https://github.com/Koalhack/koalight.nvim
 
 return {
-  'folke/tokyonight.nvim',
+  'Koalhack/koalight.nvim',
   priority = 1000,
   config = function()
-    local tokyonight = require 'tokyonight'
+    local status, koalight = pcall(require, "koalight")
+    if not status then return end
 
-    tokyonight.setup {
-      style = 'storm',
-    }
-
-    vim.cmd [[colorscheme tokyonight]]
+    vim.cmd.colorscheme 'koalight'
   end,
 }
