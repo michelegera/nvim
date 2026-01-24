@@ -14,7 +14,6 @@ return {
     treesitter.setup {
       highlight = { enable = true },
       indent = { enable = true },
-      autotag = { enable = true },
       ensure_installed = {
         'bash',
         'css',
@@ -42,5 +41,9 @@ return {
         },
       },
     }
+
+    local autotag = require 'nvim-ts-autotag'
+
+    autotag.setup()
   end,
 }
