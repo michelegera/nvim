@@ -17,9 +17,9 @@ return {
           ['vim.lsp.util.stylize_markdown'] = true,
           ['cmp.entry.get_documentation'] = true,
         },
-        presets = {
-          inc_rename = true,
-        },
+      },
+      presets = {
+        inc_rename = true,
       },
     }
   end,
