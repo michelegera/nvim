@@ -10,9 +10,6 @@ return {
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
-    local lspconfig = require 'lspconfig'
-    local cmp_nvim_lsp = require 'cmp_nvim_lsp'
-
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(event)
@@ -43,7 +40,6 @@ return {
       end,
     })
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
     local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
 
     vim.diagnostic.config({
@@ -53,19 +49,6 @@ return {
           [vim.diagnostic.severity.WARN]  = signs.Warn,
           [vim.diagnostic.severity.HINT]  = signs.Hint,
           [vim.diagnostic.severity.INFO]  = signs.Info,
-        },
-      },
-    })
-
-    vim.lsp.config('lua_ls', {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          completion = {
-            callSnippet = 'Replace',
-          },
         },
       },
     })
