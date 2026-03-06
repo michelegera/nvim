@@ -1,13 +1,17 @@
--- Koalight
--- https://github.com/Koalhack/koalight.nvim
+-- Moonlight
+-- https://github.com/michelegera/moonlight.nvim
 
 return {
-  'Koalhack/koalight.nvim',
+  'michelegera/moonlight.nvim',
   priority = 1000,
   config = function()
-    local status, koalight = pcall(require, "koalight")
-    if not status then return end
+    local status, moonlight = pcall(require, 'moonlight')
+    if not status then
+      vim.notify('Failed to load moonlight theme', vim.log.levels.ERROR)
+      return
+    end
 
-    vim.cmd.colorscheme 'koalight'
+    moonlight.setup()
+    vim.cmd.colorscheme 'moonlight'
   end,
 }
