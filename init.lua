@@ -1,0 +1,2 @@
+-- Neovim 0.12 configuration
+-- Uses built-in vim.pack plugin manager

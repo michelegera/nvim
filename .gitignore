@@ -1,0 +1,2 @@
+# Keep the lockfile for reproducibility (uncomment to ignore it)
+# nvim-pack-lock.json
