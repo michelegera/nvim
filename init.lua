@@ -8,3 +8,4 @@ require('core.autocmds')
 
 require('plugins.appearance')
 require('plugins.ui')
+require('plugins.telescope')
