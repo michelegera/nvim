@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "moonlight.nvim": {
+      "rev": "ca6c9342e25d59916bdeed967d6688cdc372b745",
+      "src": "https://github.com/michelegera/moonlight.nvim"
+    }
+  }
+}
