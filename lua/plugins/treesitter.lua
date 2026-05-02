@@ -21,6 +21,7 @@ require('nvim-treesitter.config').setup({
     'lua',
     'markdown',
     'markdown_inline',
+    'regex',
     'tsx',
     'typescript',
     'vim',
