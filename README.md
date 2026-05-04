@@ -44,7 +44,7 @@ LSP servers and tools are installed via `:Mason` or automatically on first open 
 ## Updating plugins
 
 ```vim
-:lua vim.pack.update()
+:PackUpdate
 ```
 
 Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to cancel.
@@ -58,7 +58,8 @@ Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to 
     │   ├── globals.lua   Leader key, Nerd Font flag
     │   ├── options.lua   vim.opt settings
     │   ├── keymaps.lua   Plugin-independent keymaps
-    │   └── autocmds.lua  Highlight on yank
+    │   ├── autocmds.lua  Highlight on yank
+    │   └── commands.lua  User commands (PackUpdate, …)
     └── plugins/
         ├── appearance.lua   Colorscheme, statusline, tabline, indent guides
         ├── ui.lua           which-key, noice, nvim-notify

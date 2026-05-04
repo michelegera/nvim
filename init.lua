@@ -5,6 +5,7 @@ require('core.globals')
 require('core.options')
 require('core.keymaps')
 require('core.autocmds')
+require('core.commands')
 
 require('plugins.appearance')
 require('plugins.ui')
