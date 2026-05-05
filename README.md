@@ -13,6 +13,7 @@ Personal Neovim configuration built on the built-in `vim.pack` plugin manager �
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | Telescope live grep |
 | [fd](https://github.com/sharkdp/fd) | Telescope file search |
 | [lazygit](https://github.com/jesseduffield/lazygit) | LazyGit integration |
+| [opencode](https://github.com/sst/opencode) | OpenCode CLI (for OpenCode integration) |
 | [prettier](https://prettier.io) / [stylua](https://github.com/JohnnyMorganz/StyLua) | Formatters (also installable via mason) |
 
 ## Installation
@@ -71,7 +72,7 @@ Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to 
         ├── formatting.lua   conform.nvim
         ├── linting.lua      nvim-lint
         ├── completion.lua   nvim-cmp, LuaSnip
-        ├── ai.lua           Claude Code, snacks
+        ├── ai.lua           Claude Code, OpenCode, snacks
         ├── neotree.lua      File explorer
         └── session.lua      Sessions, splits, diagnostics, todos
 ```
@@ -141,6 +142,7 @@ Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to 
 |---|---|
 | [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code integration |
 | [snacks.nvim](https://github.com/folke/snacks.nvim) | UI backend for claudecode |
+| [opencode.nvim](https://github.com/sudo-tee/opencode.nvim) | OpenCode integration |
 
 ### Session & Window Management
 | Plugin | Description |
@@ -297,3 +299,7 @@ Leader key is `<Space>`.
 | `<leader>as` | Send selection to Claude (visual) / Add file (file tree) |
 | `<leader>aa` | Accept diff |
 | `<leader>ad` | Deny diff |
+
+### OpenCode
+
+Keymaps are registered under `<leader>o` by opencode.nvim. Press `<leader>o` to browse available actions via which-key.

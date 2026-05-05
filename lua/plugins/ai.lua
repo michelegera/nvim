@@ -3,13 +3,21 @@ local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
   gh('folke/snacks.nvim'),
   gh('coder/claudecode.nvim'),
+  gh('sudo-tee/opencode.nvim'),
 })
 
 require('snacks').setup({})
 
 require('claudecode').setup({})
 
-require('which-key').add({ { '<leader>a', group = 'AI/Claude Code' } })
+require('opencode').setup({
+  keymap_prefix = '<leader>o',
+})
+
+require('which-key').add({
+  { '<leader>a', group = 'Claude Code' },
+  { '<leader>o', group = 'OpenCode' },
+})
 
 local keymap = vim.keymap
 keymap.set('n', '<leader>ac', '<cmd>ClaudeCode<cr>', { desc = 'Toggle Claude' })
