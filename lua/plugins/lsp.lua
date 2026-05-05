@@ -85,7 +85,6 @@ require('mason-lspconfig').setup({
     'html',
     'jsonls',
     'lua_ls',
-    'ruby_lsp',
     'ts_ls',
   },
   handlers = {
@@ -101,6 +100,12 @@ require('mason-lspconfig').setup({
             completion = { callSnippet = 'Replace' },
           },
         },
+      })
+    end,
+    ['ruby_lsp'] = function()
+      require('lspconfig').ruby_lsp.setup({
+        capabilities = capabilities,
+        cmd = { 'mise', 'exec', '--', 'ruby-lsp' },
       })
     end,
   },
