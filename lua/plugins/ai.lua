@@ -3,16 +3,21 @@ local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
   gh('folke/snacks.nvim'),
   gh('coder/claudecode.nvim'),
-  gh('sudo-tee/opencode.nvim'),
+  gh('nickjvandyke/opencode.nvim'),
 })
 
-require('snacks').setup({})
+require('snacks').setup({
+  input = {},
+  picker = {
+    actions = {
+      opencode_send = function(...) return require('opencode').snacks_picker_send(...) end,
+    },
+  },
+})
+
+vim.o.autoread = true
 
 require('claudecode').setup({})
-
-require('opencode').setup({
-  keymap_prefix = '<leader>o',
-})
 
 require('which-key').add({
   { '<leader>a', group = 'Claude Code' },
@@ -38,3 +43,14 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 keymap.set('n', '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', { desc = 'Accept diff' })
 keymap.set('n', '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', { desc = 'Deny diff' })
+
+local opencode = require('opencode')
+keymap.set({ 'n', 'x' }, '<leader>oa', function() opencode.ask('@this: ', { submit = true }) end, { desc = 'Ask OpenCode' })
+keymap.set({ 'n', 'x' }, '<leader>os', function() opencode.select() end, { desc = 'Select OpenCode action' })
+keymap.set('n', '<leader>ot', function() opencode.toggle() end, { desc = 'Toggle OpenCode' })
+keymap.set('n', '<leader>ou', function() opencode.command('session.half.page.up') end, { desc = 'Scroll up' })
+keymap.set('n', '<leader>od', function() opencode.command('session.half.page.down') end, { desc = 'Scroll down' })
+keymap.set('n', '<leader>on', function() opencode.command('session.new') end, { desc = 'New session' })
+keymap.set('n', '<leader>ol', function() opencode.command('session.select') end, { desc = 'List sessions' })
+keymap.set({ 'n', 'x' }, 'go', function() return opencode.operator('@this ') end, { desc = 'Add range to OpenCode', expr = true })
+keymap.set('n', 'goo', function() return opencode.operator('@this ') .. '_' end, { desc = 'Add line to OpenCode', expr = true })

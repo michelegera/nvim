@@ -142,7 +142,7 @@ Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to 
 |---|---|
 | [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code integration |
 | [snacks.nvim](https://github.com/folke/snacks.nvim) | UI backend for claudecode |
-| [opencode.nvim](https://github.com/sudo-tee/opencode.nvim) | OpenCode integration |
+| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | OpenCode integration |
 
 ### Session & Window Management
 | Plugin | Description |
@@ -302,4 +302,14 @@ Leader key is `<Space>`.
 
 ### OpenCode
 
-Keymaps are registered under `<leader>o` by opencode.nvim. Press `<leader>o` to browse available actions via which-key.
+| Key | Action |
+|---|---|
+| `<leader>oa` | Ask OpenCode (with context) |
+| `<leader>os` | Select OpenCode action |
+| `<leader>ot` | Toggle OpenCode terminal |
+| `<leader>on` | New session |
+| `<leader>ol` | List/select session |
+| `<leader>ou` | Scroll up half page |
+| `<leader>od` | Scroll down half page |
+| `go` | Add range/selection to OpenCode (operator) |
+| `goo` | Add current line to OpenCode |
