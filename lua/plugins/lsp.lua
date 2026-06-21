@@ -113,6 +113,7 @@ require('mason-lspconfig').setup({
 
 require('mason-tool-installer').setup({
   ensure_installed = {
+    'markdownlint',
     'prettier',
     'stylua',
     { 'eslint_d', version = '13.1.2' },
