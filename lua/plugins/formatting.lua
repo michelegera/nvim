@@ -13,7 +13,7 @@ require('conform').setup({
     javascriptreact = { 'prettier' },
     json = { 'prettier' },
     lua = { 'stylua' },
-    markdown = { 'prettier' },
+    markdown = { 'markdownlint', 'prettier' },
     typescript = { 'prettier' },
     typescriptreact = { 'prettier' },
     yaml = { 'prettier' },
