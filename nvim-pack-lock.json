@@ -9,7 +9,7 @@
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
-      "rev": "101d71861f6a012f2be80e4100720874330d86aa",
+      "rev": "61ffe3e9cedb59eac31484248a1de6a0e37f8d21",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "bookmarks.nvim": {
@@ -170,11 +170,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lsp-file-operations": {
-      "rev": "b9c795d3973e8eec22706af14959bc60c579e771",
+      "rev": "775c97a7de77e0368758a70eddd8a52af1ab6046",
       "src": "https://github.com/antosha417/nvim-lsp-file-operations"
     },
     "nvim-lspconfig": {
-      "rev": "684cb45c2faa24ce463b4fe9aaf011bfe1e0fb26",
+      "rev": "bbe6b383a1e85d3a84b54a43f7d9d83567c150cb",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -194,7 +194,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "857651fce37eba032ebe28f3a206283cdc65c45a",
+      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
@@ -206,7 +206,7 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
-      "rev": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
+      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
@@ -266,7 +266,7 @@
       "src": "https://github.com/folke/trouble.nvim"
     },
     "vdiff.nvim": {
-      "rev": "678ad1c309dbd1fdf162e112817e50110edd405a",
+      "rev": "e6787b692c3b471304864bb5b33fb3bc76d0f503",
       "src": "https://gitlab.com/tduyng/vdiff.nvim"
     },
     "vim-maximizer": {
