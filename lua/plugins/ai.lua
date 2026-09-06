@@ -15,8 +15,6 @@ require('snacks').setup({
   },
 })
 
-vim.o.autoread = true
-
 require('claudecode').setup({})
 
 require('which-key').add({

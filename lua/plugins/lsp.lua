@@ -43,8 +43,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
     map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-    map('[d', diagnostic.goto_prev, 'Goto previous diagnostic')
-    map(']d', diagnostic.goto_next, 'Goto next diagnostic')
+    map('[d', function() diagnostic.jump({ count = -1 }) end, 'Goto previous diagnostic')
+    map(']d', function() diagnostic.jump({ count = 1 }) end, 'Goto next diagnostic')
     map('K', buf.hover, '[K] Show documentation for what is under cursor')
   end,
 })
@@ -98,6 +98,7 @@ require('mason-lspconfig').setup({
           Lua = {
             diagnostics = { globals = { 'vim' } },
             completion = { callSnippet = 'Replace' },
+            workspace = { checkThirdParty = false },
           },
         },
       })

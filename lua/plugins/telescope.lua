@@ -25,7 +25,7 @@ telescope.setup({
 })
 
 -- fzf-native requires manual build on first install:
---   :!cd ~/.local/share/nvim-0.12/site/pack/core/opt/telescope-fzf-native.nvim && make
+--   :!cd ~/.local/share/nvim/site/pack/core/opt/telescope-fzf-native.nvim && make
 pcall(telescope.load_extension, 'fzf')
 
 local keymap = vim.keymap

@@ -6,9 +6,10 @@ vim.deprecate = function(name, ...)
   return _orig_deprecate(name, ...)
 end
 
-vim.cmd 'let g:netrw_liststyle = 3'
-
 local opt = vim.opt
+
+opt.autoread = true
+opt.winborder = 'rounded'
 
 opt.cursorline = true
 opt.number = true
