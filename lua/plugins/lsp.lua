@@ -76,6 +76,27 @@ require('mason').setup({
   },
 })
 
+-- mason-lspconfig 2.x removed `handlers` and enables Mason-installed servers
+-- via vim.lsp.enable() automatically (automatic_enable), so per-server config
+-- now uses the native vim.lsp.config() API.
+vim.lsp.config('*', { capabilities = capabilities })
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { 'vim' } },
+      completion = { callSnippet = 'Replace' },
+      workspace = { checkThirdParty = false },
+    },
+  },
+})
+
+-- ruby-lsp is managed by mise, not Mason, so it is not covered by automatic_enable
+vim.lsp.config('ruby_lsp', {
+  cmd = { 'mise', 'exec', '--', 'ruby-lsp' },
+})
+vim.lsp.enable('ruby_lsp')
+
 require('mason-lspconfig').setup({
   ensure_installed = {
     'cssls',
@@ -86,29 +107,6 @@ require('mason-lspconfig').setup({
     'jsonls',
     'lua_ls',
     'ts_ls',
-  },
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({ capabilities = capabilities })
-    end,
-    ['lua_ls'] = function()
-      require('lspconfig').lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = { globals = { 'vim' } },
-            completion = { callSnippet = 'Replace' },
-            workspace = { checkThirdParty = false },
-          },
-        },
-      })
-    end,
-    ['ruby_lsp'] = function()
-      require('lspconfig').ruby_lsp.setup({
-        capabilities = capabilities,
-        cmd = { 'mise', 'exec', '--', 'ruby-lsp' },
-      })
-    end,
   },
 })
 
