@@ -14,10 +14,17 @@ lint.linters_by_ft = {
   typescriptreact = { 'eslint_d' },
 }
 
+local lint_timer = assert(vim.uv.new_timer())
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
   group = vim.api.nvim_create_augroup('lint', { clear = true }),
-  callback = function()
-    lint.try_lint()
+  callback = function(event)
+    local bufnr = event.buf
+    lint_timer:stop()
+    lint_timer:start(100, 0, vim.schedule_wrap(function()
+      if vim.api.nvim_buf_is_valid(bufnr) then
+        lint.try_lint(nil, { bufnr = bufnr })
+      end
+    end))
   end,
 })
 
