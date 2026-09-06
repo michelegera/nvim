@@ -79,7 +79,7 @@ require('mason').setup({
 require('mason-lspconfig').setup({
   ensure_installed = {
     'cssls',
-    'emmet_ls',
+    'emmet_language_server',
     'eslint',
     'graphql',
     'html',
@@ -117,6 +117,6 @@ require('mason-tool-installer').setup({
     'markdownlint',
     'prettier',
     'stylua',
-    { 'eslint_d', version = '13.1.2' },
+    { 'eslint_d', version = '15.0.3' },
   },
 })
