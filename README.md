@@ -74,7 +74,7 @@ Review the diff shown in the confirmation buffer, then `:w` to apply or `:q` to 
         ├── completion.lua   nvim-cmp, LuaSnip
         ├── ai.lua           Claude Code, OpenCode, snacks
         ├── neotree.lua      File explorer
-        └── session.lua      Sessions, splits, diagnostics, todos
+        └── tools.lua        Sessions, splits, diagnostics, todos, rename
 ```
 
 ## Plugins
