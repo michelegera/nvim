@@ -115,6 +115,8 @@ require('mason-tool-installer').setup({
     'markdownlint',
     'prettier',
     'stylua',
+    'biome',
+    'oxlint',
     { 'eslint_d', version = '15.0.3' },
   },
 })
